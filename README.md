@@ -1,6 +1,6 @@
 # Contrail
 
-Live planes on a 3D globe. Spin it, zoom into any city and watch real aircraft move across the map. Click a plane to see the airline, aircraft type, where it's registered and what it's doing right now, e.g. "Cruising east at 37,000 ft, 909 km/h". Done mainly just for me to see them.
+Live planes on a 3D globe. Watch real aircraft move across the map. Click a plane to see the airline, aircraft type, where it's registered and what it's doing right now, e.g. "Cruising east at 37,000 ft, 909 km/h". Done mainly just for me to see them.
 
 ## What it does
 
@@ -55,22 +55,6 @@ Only one area is recorded because the whole world is 10,000+ planes a minute, wh
 - [Natural Earth](https://www.naturalearthdata.com) country outlines (world-atlas, via jsDelivr)
 - Flight data from adsb.fi, adsb.lol and OpenSky
 - pgTAP and Deno tests
-
-## Project layout
-
-```
-supabase/
-  migrations/              tables, indexes, RLS, the aircraft_near and my_watched_aircraft functions, Realtime, cleanup job
-  functions/
-    ingest-flights/        scheduled function that fills the database (index.ts), OpenSky parser (opensky.ts)
-    planes-near/           live planes around any point, no storage
-    _shared/               ADS-B parsing and merging, ICAO address to country table, tests
-  setup/schedule.sql       run once by hand to schedule the ingest
-  tests/database/          RLS tests
-  config.toml              Supabase CLI config
-web/
-  index.html, app.css, app.js
-```
 
 ## Running it locally
 
